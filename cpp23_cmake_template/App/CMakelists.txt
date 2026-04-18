@@ -1,0 +1,3 @@
+project(my_app)
+set(MAIN_KEY_ENTRY "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp")
+add_executable(${PROJECT_NAME} ${MAIN_KEY_ENTRY})
