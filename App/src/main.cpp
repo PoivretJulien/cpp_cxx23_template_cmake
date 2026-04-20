@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
   // compile time computation.
   constexpr float v = constexpr_sqrt(81);
 
-  // Fibonacci sequence of 20 iteration.
+  // Fibonacci sequence of 20 iterations.
   fib(20);
 
   // Hello program template.
