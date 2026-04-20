@@ -10,6 +10,7 @@ project(BasicTemplate)
 add_subdirectory(App)
 add_subdirectory(StaticLib)
 
+# Set CMAKE variable in cache.
 option(BUILD_INFO_ON_CONSOLE "Active additional Console message on configuration step" YES)
 
 # Custom console message text arg1 can be: 'STATUS' 'WARNING' 'ERROR'
