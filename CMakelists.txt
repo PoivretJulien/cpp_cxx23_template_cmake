@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.17)
+
+# Constraint to C++23 language standard.
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Project folder tree.
+add_subdirectory(App)
+add_subdirectory(StaticLib)
+
+# Custom console message text arg1 can be: 'STATUS' 'WARNING' 'ERROR'
+message(STATUS 
+"Ny hello CMAKE template from: ${CMAKE_CURRENT_SOURCE_DIR}"
+)

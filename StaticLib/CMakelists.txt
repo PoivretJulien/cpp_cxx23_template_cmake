@@ -1,0 +1,48 @@
+# Define the name of the lib 
+project(LibBundle)
+
+# Catches all files path (by type extension) inside the variables  
+# HEADERS and SOURCES respectively.
+# the HEADER is only use for the for loop in order to enumerate 
+# the folder for demo purpose unlike the SOURCE variable HEADER file
+# is not used for the cmake building step.
+file(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS
+ "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h"
+ )
+
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
+"${CMAKE_CURRENT_SOURCE_DIR}/src/*.h" # option may help some IDE.
+"${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+
+# (For demo purpose only) output the sources and headers files at cmake configure time 
+set(COUNT 1)
+foreach(PATH IN LISTS SOURCES)
+    get_filename_component(NAME_ONLY ${PATH} NAME)
+    message(STATUS "Auto listed:  (source files) ${COUNT} ---> ${NAME_ONLY}")
+    math(EXPR COUNT "${} + 1")
+endforeach()
+
+set(COUNT 1)
+foreach(PATH IN LISTS HEADERS)
+    get_filename_component(NAME_ONLY ${PATH} NAME)
+    message(STATUS "Auto listed: (headers files) ${COUNT} ---> ${NAME_ONLY}")
+    math(EXPR COUNT "${} + 1")
+endforeach()
+
+# At this point all the ${SOURCES} files '.cpp' , '.h' 
+# to the folder will be added automatically 
+# on each cmake configure step. 
+
+# Add source files '.cpp' And possible private 
+# &include file '.h'
+# for compiler. 
+add_library(${PROJECT_NAME} 
+        STATIC
+        ${SOURCES}
+)
+
+# Add all the directory of include files. 
+target_include_directories(${PROJECT_NAME}
+    PUBLIC  ${CMAKE_CURRENT_SOURCE_DIR}/include
+    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src #in special case of private include in src dir
+)
