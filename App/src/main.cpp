@@ -2,10 +2,15 @@
 #include "Geometry.h"
 #include <cstdlib>
 #include <print>
+#include <chrono>
 /*
    Basic main menu.
 */
 int main(int argc, char *argv[]) {
+  using namespace std::chrono;
+  auto now = std::chrono::system_clock::now();
+  auto time = std::chrono::zoned_time(std::chrono::current_zone(), now);
+  std::println("{0}", time);
 
   std::println("\x1b[32mHello program template.\x1b[0m");
   // compile time computation.
