@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
   // here the Delta computed at compile time.
   constexpr auto v_c = v_b - v_a;
 
-  // c++23 console loging.
+  // c++23 console logging.
   std::println("\x1b[33m{0:<23} length:{1:>7.3f}\x1b[0m", v_a.to_string(),
                v_a.length_mag());
   std::println("\x1b[35m{0:<23} length:{1:>7.3f}\x1b[0m", v_b.to_string(),
