@@ -12,5 +12,5 @@ add_subdirectory(StaticLib)
 
 # Custom console message text arg1 can be: 'STATUS' 'WARNING' 'ERROR'
 message(STATUS 
-"Ny hello CMAKE template from: ${CMAKE_CURRENT_SOURCE_DIR}"
+"My hello CMAKE template from: ${CMAKE_CURRENT_SOURCE_DIR}"
 )
