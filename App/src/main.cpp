@@ -7,7 +7,7 @@
    Basic main menu.
 */
 int main(int argc, char *argv[]) {
-  // Get the time system.
+  // Get the system time.
   auto now = std::chrono::system_clock::now();
   auto time = std::chrono::zoned_time(std::chrono::current_zone(), now);
   std::println("{0}", time);
