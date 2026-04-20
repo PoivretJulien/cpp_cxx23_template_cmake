@@ -22,5 +22,5 @@ constexpr float constexpr_sqrt(float s) {
 }
 
 /// Basic function that print fibonacci
-/// sequences from 0 to n iteration.
+/// sequences from 0 to n iterations.
 void fib(int n);
