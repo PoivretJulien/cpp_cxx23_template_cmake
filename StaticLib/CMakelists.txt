@@ -14,20 +14,22 @@ file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
 "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h" # option may help some IDE.
 "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 
-# (For demo purpose only) output the sources and headers files at cmake configure time 
-set(COUNT 1)
-foreach(PATH IN LISTS SOURCES)
-    get_filename_component(NAME_ONLY ${PATH} NAME)
-    message(STATUS "Auto listed:  (source files) ${COUNT} ---> ${NAME_ONLY}")
-    math(EXPR COUNT "${} + 1")
-endforeach()
+if(${BUILD_INFO_ON_CONSOLE})
+    # (For demo purpose only) output the sources and headers files at cmake configure time 
+    set(COUNT 1)
+    foreach(PATH IN LISTS SOURCES)
+        get_filename_component(NAME_ONLY ${PATH} NAME)
+        message(STATUS "Auto listed:  (source files) ${COUNT} ---> ${NAME_ONLY}")
+        math(EXPR COUNT "${COUNT} + 1")
+    endforeach()
 
-set(COUNT 1)
-foreach(PATH IN LISTS HEADERS)
-    get_filename_component(NAME_ONLY ${PATH} NAME)
-    message(STATUS "Auto listed: (headers files) ${COUNT} ---> ${NAME_ONLY}")
-    math(EXPR COUNT "${} + 1")
-endforeach()
+    set(COUNT 1)
+    foreach(PATH IN LISTS HEADERS)
+        get_filename_component(NAME_ONLY ${PATH} NAME)
+        message(STATUS "Auto listed: (headers files) ${COUNT} ---> ${NAME_ONLY}")
+        math(EXPR COUNT "${COUNT} + 1")
+    endforeach()
+endif()    
 
 # At this point all the ${SOURCES} files '.cpp' , '.h' 
 # to the folder will be added automatically 
