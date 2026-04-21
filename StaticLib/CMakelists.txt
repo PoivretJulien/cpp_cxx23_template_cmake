@@ -36,7 +36,7 @@ endif()
 # on each cmake configure step. 
 
 # Add source files '.cpp' And possible private 
-# &include file '.h'
+# include file '.h'
 # for compiler. 
 add_library(${PROJECT_NAME} 
         STATIC
